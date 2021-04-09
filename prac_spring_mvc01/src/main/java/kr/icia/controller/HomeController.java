@@ -32,6 +32,8 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		// req.setAttribute("serverTime", formattedDate );
+		// 기존에는 리스폰을 사용했는데 지금은 model을 사용함
 		
 		return "home";
 	}
