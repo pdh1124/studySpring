@@ -4,22 +4,28 @@
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-      <property name="driverClassName"
-         value="oracle.jdbc.driver.OracleDriver"></property>
-      <property name="jdbcUrl"
-         value="jdbc:oracle:thin:@localhost:1521:XE"></property>
-      <property name="username" value="admin"></property>
-      <property name="password" value="1234"></property>
-   </bean>
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="admin"></property>
+		<property name="password" value="1234"></property>
+	</bean>
 
-   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-      destroy-method="close">
-      <constructor-arg ref="hikariConfig"></constructor-arg>
-   </bean>
-	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig"></constructor-arg>
+	</bean>
+
+	<!-- sql 처리 과정에서 사용되는 세션 관리 위에서 생성한 dataSource bean 이용. -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<mybatis-spring:scan base-package="kr.icia.mapper" />
-	
+
 </beans>
