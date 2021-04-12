@@ -12,4 +12,6 @@ public interface TimeMapper {
 	//인터페이스를 가져다 쓰는 부분에서 몸체를 구현.
 	//스프링 프레임워쿼는 인터페이스를 임플리먼트 받는 클래스를 생성하고,
 	//몸체를 구현하는 번거로운 작업을 대신 자동 처리.
+	
+	public String getTime2();
 }
