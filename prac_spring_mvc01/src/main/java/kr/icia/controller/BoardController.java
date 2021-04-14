@@ -43,6 +43,13 @@ public class BoardController {
 		// 컨트롤러 > 서비스 > 매퍼 > mybatis
 	}
 	
+	//글쓰기 버튼을 누르면, 게시물 입력폼 보이기
+	@GetMapping("/register")
+	public void register() {
+		//이동할 주소를 리턴하지 않는다면, 요청한 이름으로의 jsp 파일을 찾음.
+	}
+	
+	
 	//글쓰기
 	// jsp 대비로 if~else 분기 처리가 필요 없음
 	@PostMapping("/register")
