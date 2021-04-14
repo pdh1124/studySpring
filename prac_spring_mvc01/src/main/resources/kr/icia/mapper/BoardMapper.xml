@@ -29,7 +29,7 @@
 	</delete>
 	
 	<update id="update">
-	update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, updateDate=sysdate where bno=#{bno}
+		update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, updateDate=sysdate where bno=#{bno}
 	</update>
 	
 </mapper>

@@ -3677,3 +3677,788 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 13:46:12.921
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.044
+!MESSAGE Error reading contents using content type: com.springsource.sts.config.ui.beanConfigFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.springframework.ide.eclipse.config.ui.contenttype.SpringElementContentDescriber.checkCriteria(SpringElementContentDescriber.java:47)
+	at org.springframework.ide.eclipse.config.ui.contenttype.SpringElementContentDescriber.describe(SpringElementContentDescriber.java:88)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:255)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.046
+!MESSAGE Error reading contents using content type: com.springsource.sts.config.ui.webflowConfigFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.047
+!MESSAGE Error reading contents using content type: org.eclipse.ant.core.antBuildFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.ant.internal.core.contentDescriber.AntHandler.parseContents(AntHandler.java:131)
+	at org.eclipse.ant.internal.core.contentDescriber.AntBuildfileContentDescriber.checkCriteria(AntBuildfileContentDescriber.java:55)
+	at org.eclipse.ant.internal.core.contentDescriber.AntBuildfileContentDescriber.describe(AntBuildfileContentDescriber.java:91)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:255)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.048
+!MESSAGE Error reading contents using content type: org.eclipse.jdt.junit.JUnitResult.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.049
+!MESSAGE Error reading contents using content type: org.eclipse.jst.jsf.facesconfig.facesConfigFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber.checkCriteria(XMLRootElementContentDescriber.java:76)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber.describe(XMLRootElementContentDescriber.java:111)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:253)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.050
+!MESSAGE Error reading contents using content type: org.springframework.ide.eclipse.beans.mylyn.beansConfig.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.051
+!MESSAGE Error reading contents using content type: org.springframework.ide.eclipse.beans.ui.editor.beansConfig.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:09:20.052
+!MESSAGE Error reading contents using content type: org.springframework.ide.eclipse.webflow.ui.editor.webflowConfig.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:31:27.884
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:31:27.885
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:31:27.885
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 14:35:02.998
+!MESSAGE Error reading contents using content type: org.eclipse.ant.core.antBuildFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 1은(는) 1바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:567)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2982)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.ant.internal.core.contentDescriber.AntHandler.parseContents(AntHandler.java:131)
+	at org.eclipse.ant.internal.core.contentDescriber.AntBuildfileContentDescriber.checkCriteria(AntBuildfileContentDescriber.java:55)
+	at org.eclipse.ant.internal.core.contentDescriber.AntBuildfileContentDescriber.describe(AntBuildfileContentDescriber.java:91)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:255)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:35:23.363
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:35:23.364
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:35:23.364
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:40:56.974
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:40:56.975
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 14:40:56.976
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:42:37.529
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:42:37.573
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:43:06.458
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:43:06.459
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:46:49.064
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:46:49.066
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:47:06.873
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 14:47:06.875
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:08:50.921
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:08:50.922
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:10:04.271
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:10:04.273
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:10:06.345
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:10:06.346
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 15:16:09.564
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 15:16:09.565
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-04-14 15:16:09.576
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:16:29.310
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:16:29.313
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:19:37.425
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:19:37.439
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:20:03.075
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:20:03.079
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:20:19.472
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:20:19.476
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:20:26.132
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2021-04-14 15:20:26.135
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.398
+!MESSAGE Error reading contents using content type: com.springsource.sts.config.ui.beanConfigFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.springframework.ide.eclipse.config.ui.contenttype.SpringElementContentDescriber.checkCriteria(SpringElementContentDescriber.java:47)
+	at org.springframework.ide.eclipse.config.ui.contenttype.SpringElementContentDescriber.describe(SpringElementContentDescriber.java:88)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:255)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.399
+!MESSAGE Error reading contents using content type: com.springsource.sts.config.ui.webflowConfigFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.400
+!MESSAGE Error reading contents using content type: org.eclipse.ant.core.antBuildFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.ant.internal.core.contentDescriber.AntHandler.parseContents(AntHandler.java:131)
+	at org.eclipse.ant.internal.core.contentDescriber.AntBuildfileContentDescriber.checkCriteria(AntBuildfileContentDescriber.java:55)
+	at org.eclipse.ant.internal.core.contentDescriber.AntBuildfileContentDescriber.describe(AntBuildfileContentDescriber.java:91)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:255)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.401
+!MESSAGE Error reading contents using content type: org.eclipse.jdt.junit.JUnitResult.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.401
+!MESSAGE Error reading contents using content type: org.eclipse.jst.jsf.facesconfig.facesConfigFile.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber.checkCriteria(XMLRootElementContentDescriber.java:76)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber.describe(XMLRootElementContentDescriber.java:111)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:253)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.402
+!MESSAGE Error reading contents using content type: org.springframework.ide.eclipse.beans.mylyn.beansConfig.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.403
+!MESSAGE Error reading contents using content type: org.springframework.ide.eclipse.beans.ui.editor.beansConfig.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.contenttype 4 0 2021-04-14 15:22:55.404
+!MESSAGE Error reading contents using content type: org.springframework.ide.eclipse.webflow.ui.editor.webflowConfig.
+!STACK 0
+com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2은(는) 3바이트 UTF-8 시퀀스에 대해 부적합한 바이트입니다.
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.invalidByte(UTF8Reader.java:701)
+	at com.sun.org.apache.xerces.internal.impl.io.UTF8Reader.read(UTF8Reader.java:408)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(XMLEntityScanner.java:1895)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.scanData(XMLEntityScanner.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanComment(XMLScanner.java:802)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanComment(XMLDocumentFragmentScannerImpl.java:1034)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:899)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:327)
+	at org.eclipse.core.internal.content.XMLRootHandler.lambda$0(XMLRootHandler.java:164)
+	at org.eclipse.core.runtime.ServiceCaller.lambda$0(ServiceCaller.java:289)
+	at java.util.Optional.map(Optional.java:215)
+	at org.eclipse.core.runtime.ServiceCaller.getCallUnget(ServiceCaller.java:287)
+	at org.eclipse.core.runtime.ServiceCaller.callOnce(ServiceCaller.java:126)
+	at org.eclipse.core.internal.content.XMLRootHandler.parseContents(XMLRootHandler.java:158)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.fillContentProperties(XMLRootElementContentDescriber2.java:206)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.checkCriteria(XMLRootElementContentDescriber2.java:135)
+	at org.eclipse.core.runtime.content.XMLRootElementContentDescriber2.describe(XMLRootElementContentDescriber2.java:174)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.describe(ContentTypeCatalog.java:251)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.collectMatchingByContents(ContentTypeCatalog.java:226)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:440)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.internalFindContentTypesFor(ContentTypeCatalog.java:499)
+	at org.eclipse.core.internal.content.ContentTypeCatalog.findContentTypesFor(ContentTypeCatalog.java:333)
+	at org.eclipse.core.internal.content.ContentTypeMatcher.findContentTypesFor(ContentTypeMatcher.java:57)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getDocumentContentTypes(LSPEclipseUtils.java:818)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:348)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:588)
+	at org.eclipse.lsp4e.ConnectDocumentToLanguageServerSetupParticipant$2.run(ConnectDocumentToLanguageServerSetupParticipant.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

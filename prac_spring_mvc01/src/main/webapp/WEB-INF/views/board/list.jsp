@@ -35,8 +35,8 @@
 	                        <td><c:out value="${board.bno }" /></td>
 	                        <td><c:out value="${board.title }" /></td>
 	                        <td><c:out value="${board.writer }" /></td>
-	                        <td><fmt:formatDate pattern="yyyy-mm-dd" value="${board.regdate }" /></td>
-	                        <td><fmt:formatDate pattern="yyyy-mm-dd" value="${board.updateDate }" /></td>
+	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></td>
+	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }" /></td>
 	                    </tr>
                     </c:forEach>
                 </tbody>
@@ -72,17 +72,19 @@
 		});
 		
 		var result = '<c:out value="${result}" />';
+		//자바스크립트는 형추론 이용. => 변수를 지정할때 자료형(int, long 등등)을 따로 지정하지 않음
 		checkModal(result);
+		//게시물 번호를 매개변수로 전달하면서 checkModal 메소드 호출
 		
 		function checkModal(result) {
 			if (result === '') {
 				// == 는 값만 비교, === 은 값과 형식도 비교
 				return;
 			}
-			if (parseInt(result) > 0) {
-				$(".modal-body").html("게시글" + parseInt(result) + "번이 등록");
+			if (parseInt(result) > 0) { //전달된 문자값을 숫자화, 자바의 Integer.parseInt와 비슷함.
+				$(".modal-body").html("게시글" + parseInt(result) + "번이 등록"); //표시할 내용 만들기
 			}
-			$("#myModal").modal("show");
+			$("#myModal").modal("show"); //모달창 표시
 		}
 	});
 </script>
