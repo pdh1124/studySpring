@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.icia.domain.BoardVO;
+import kr.icia.domain.Criteria;
 import kr.icia.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -34,9 +35,9 @@ public class BoardController {
 	 @PostMapping : 페이지 요청 방식이 post일 경우.  = @RequestMapping(value = "/list", method = RequestMethod.POST)
 	 */
 	@GetMapping("/list")
-	public void list(Model model) {
-		log.info("list");
-		model.addAttribute("list", service.getList());
+	public void list(Model model, Criteria cri) {
+		log.info("list: " + cri);
+		model.addAttribute("list", service.getList(cri));
 		// 과거 jsp에서는 requset.setAttribute로 ArrayList를 전달했지만
 		// , 같은 역할을 model이 대신.
 		

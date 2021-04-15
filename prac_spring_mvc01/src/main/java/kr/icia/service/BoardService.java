@@ -3,6 +3,7 @@ package kr.icia.service;
 import java.util.List;
 
 import kr.icia.domain.BoardVO;
+import kr.icia.domain.Criteria;
 
 public interface BoardService {
 	public void register(BoardVO board); //등록.
@@ -13,5 +14,5 @@ public interface BoardService {
 	
 	public boolean remove(Long bno); //삭제
 	
-	public List<BoardVO> getList(); //목록 
+	public List<BoardVO> getList(Criteria cri); //목록 
 }

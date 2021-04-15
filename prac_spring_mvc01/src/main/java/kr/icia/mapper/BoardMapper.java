@@ -3,6 +3,7 @@ package kr.icia.mapper;
 import java.util.List;
 
 import kr.icia.domain.BoardVO;
+import kr.icia.domain.Criteria;
 
 public interface BoardMapper {
 	public List<BoardVO> getList();
@@ -21,4 +22,6 @@ public interface BoardMapper {
 	public int delete(Long bno); //삭제
 	
 	public int update(BoardVO board); //수정
+	
+	public List<BoardVO> getListWithPaging(Criteria cri); //페이징
 }
