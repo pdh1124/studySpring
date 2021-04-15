@@ -12,7 +12,7 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Log4j // lombok 로그 사용
-@Service //이 클래스가 서비스 계층을 맡는다고 알림. (**)
+@Service //이 클래스가 서비스 계층을 맡는다고 알림.
 @AllArgsConstructor //모든 매개변수에 대한 생성자 생성.(생성자 여러개 아님)
 public class BoardServiceImp implements BoardService {
 

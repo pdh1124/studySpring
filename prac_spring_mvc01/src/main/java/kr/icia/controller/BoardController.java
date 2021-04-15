@@ -68,7 +68,7 @@ public class BoardController {
 	
 	//읽기
 	//제목 링크를 클릭하여 글 상세보기 - get방식
-	@GetMapping("/get")
+	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		// @RequestParam : 요청 전달값으로 글번호 이용.
 		log.info("/get");

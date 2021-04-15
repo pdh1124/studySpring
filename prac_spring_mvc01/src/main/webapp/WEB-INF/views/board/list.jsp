@@ -33,7 +33,7 @@
                 	<c:forEach var="board" items="${list }">
 	                    <tr>
 	                        <td><c:out value="${board.bno }" /></td>
-	                        <td><c:out value="${board.title }" /></td>
+	                        <td><a href="/board/get?bno=${board.bno }"><c:out value="${board.title }" /></a></td>
 	                        <td><c:out value="${board.writer }" /></td>
 	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></td>
 	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }" /></td>
@@ -83,6 +83,8 @@
 			}
 			if (parseInt(result) > 0) { //전달된 문자값을 숫자화, 자바의 Integer.parseInt와 비슷함.
 				$(".modal-body").html("게시글" + parseInt(result) + "번이 등록"); //표시할 내용 만들기
+			} else if(result === "success") {
+				$(".modal-body").html(result);
 			}
 			$("#myModal").modal("show"); //모달창 표시
 		}
