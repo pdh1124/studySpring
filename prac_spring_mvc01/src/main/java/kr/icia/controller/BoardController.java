@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.icia.domain.BoardVO;
 import kr.icia.domain.Criteria;
+import kr.icia.domain.PageDTO;
 import kr.icia.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -42,6 +43,7 @@ public class BoardController {
 		// , 같은 역할을 model이 대신.
 		
 		// 컨트롤러 > 서비스 > 매퍼 > mybatis
+		model.addAttribute("pageMaker", new PageDTO(cri, 190));
 	}
 	
 	//글쓰기 버튼을 누르면, 게시물 입력폼 보이기

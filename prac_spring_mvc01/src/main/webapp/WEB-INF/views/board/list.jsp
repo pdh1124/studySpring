@@ -42,6 +42,28 @@
                 </tbody>
             </table>
         </div>
+        
+        <div>
+        	<ul class="pagination justify-content-center">
+        		<c:if test="${pageMaker.prev}">
+        			<li class="page-item previous"><a href="${pageMaker.startPage-1 }">prev</a></li>
+        		</c:if>
+        		<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+        			<li class='page-item ${pageMaker.cri.pageNum ==num?"active":"" }'>
+        				<a href="${num }" class="page-link">${num }</a>
+        			</li>
+        		</c:forEach>
+        		<c:if test="${pageMaker.next}">
+        			<li class="page-item next"><a href="${pageMaker.endPage+1 }">next</a></li>
+        		</c:if>
+        	</ul>
+        </div>
+        
+        <form id="actionForm" action="/board/list" method="get">
+        	<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+        	<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+        </form>
+
     </div>
 </div>
 
@@ -88,6 +110,20 @@
 			}
 			$("#myModal").modal("show"); //모달창 표시
 		}
+		
+		var actionForm = $("#actionForm");
+		//클래스 page-item에 a링크가 클릭 된다면,
+		$(".page-item a").on("click", function(e) {
+			e.preventDefault();
+			//기본 이벤트 동작을 막고,
+			console.log("click");
+			//웹 브라우저 검사 창에 클릭을 표시
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			//this는 클릭한 번호
+			//액션폼 인풋태그에 페이지넘 값을 찾아서,
+			//href로 받은 값으로 대처함
+			actionForm.submit();
+		});
 	});
 </script>
 
