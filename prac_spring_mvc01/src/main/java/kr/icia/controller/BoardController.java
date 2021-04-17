@@ -3,6 +3,7 @@ package kr.icia.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +44,10 @@ public class BoardController {
 		// , 같은 역할을 model이 대신.
 		
 		// 컨트롤러 > 서비스 > 매퍼 > mybatis
-		model.addAttribute("pageMaker", new PageDTO(cri, 190));
+		int total = service.getTotal(cri);
+		log.info("total : " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 	//글쓰기 버튼을 누르면, 게시물 입력폼 보이기
@@ -72,19 +76,22 @@ public class BoardController {
 	//읽기
 	//제목 링크를 클릭하여 글 상세보기 - get방식
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, Model model, @ModelAttribute("cri") Criteria cri) {
 		// @RequestParam : 요청 전달값으로 글번호 이용.
 		log.info("/get");
 		model.addAttribute("board", service.get(bno));
 		//jsp에서 request.setAttribute 하던 것과 비슷.
 		//전달값으로 명시만 하면 스프링이 자동 처리
 		//사용하는 부분만 추가 구현
+		
+		//model.addAttribute("cri", cri) : @ModelAttribute("cri")를 생략하고 사용해도 됨
+		//@ModelAttribute("cri") Criteria cri : cri로 초기화한 값을 get.jsp에 cri라는 이름으로 전달.
 	}
 	
 	//수정
 	//post 요청으로 /modify 가 온다면, 아래 메소드 수행.
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, RedirectAttributes rttr, Criteria cri) {
 		
 		log.info("modify : " + board);
 		if (service.modify(board)) {
@@ -93,18 +100,29 @@ public class BoardController {
 		//수정이 성공하면 success 메세지가 포함되어 이동
 		//실패해도 메세지 빼고 이동
 		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		//addFlashAttribute : 1회성, url 표시창에 전달되지 않음.
+		//addAttribute : 지속, url 표시됨
+		
 		return "redirect:/board/list";
 	}
 	
 	
 	//삭제
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, Criteria cri) {
 		
 		log.info("remove..." + bno);
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		//addFlashAttribute : 1회성, url 표시창에 전달되지 않음.
+		//addAttribute : 지속, url 표시됨
+		
 		return "redirect:/board/list";
 	}
 }

@@ -24,4 +24,6 @@ public interface BoardMapper {
 	public int update(BoardVO board); //수정
 	
 	public List<BoardVO> getListWithPaging(Criteria cri); //페이징
+	
+	public int getTotalCount(Criteria cri); //총 게시물 갯수 파악.
 }

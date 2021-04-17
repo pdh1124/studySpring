@@ -17,6 +17,8 @@
          	<form role="form" action="/board/modify" method="post">
 				
 				<input type="hidden" name="bno" value="${board.bno}" />
+				<input type="hidden" name="pageNum" value="${cri.pageNum }" />
+				<input type="hidden" name="amount" value="${cri.amount }" />
 				
 	            <div class="form-group">
 	            	<label>Title</label>
@@ -55,7 +57,7 @@
 		$('button').on("click", function(e) {
 			/*버튼이 클릭이 된다면 아래 함수 수행을 한다, e라는 이벤트 객체를 전달하면서*/
 			e.preventDefault(); /*기본 이벤트 동작 막기.*/
-			var operation = $(this).date("oper");
+			var operation = $(this).data("oper");
 			/*버튼에서 oper 속성을 읽어서 변수에 할당*/
 			console.log(operation);
 			/*브라우저 로그로 oper값 출력.*/
@@ -64,8 +66,19 @@
 				formObj.attr("action", "/board/remove");
 				/*form에 액션 속성을 변경.*/
 			} else if (operation === 'list') {
-				self.location = "/board/list";
-				return;
+				//self.location = "/board/list";
+				//return;
+				
+				formObj.attr("action", "/board/list").attr("method", "get");
+				// form action="/board/list"
+				// method = "get"
+				var pageNumTag = $("input[name='pageNum']");
+				var amountTag = $("input[name='amount']");
+				
+				formObj.empty(); //폼의 내용들 비우기 - 목록으로 가는데 굳이 글번호,제목,내용 등을 가져갈 필요가 없기 때문에
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
+				
 			}
 			formObj.submit();
 			/*위의 조건이 아니라면 수정 처리*/

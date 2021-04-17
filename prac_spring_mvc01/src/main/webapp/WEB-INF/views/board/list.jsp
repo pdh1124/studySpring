@@ -33,7 +33,9 @@
                 	<c:forEach var="board" items="${list }">
 	                    <tr>
 	                        <td><c:out value="${board.bno }" /></td>
-	                        <td><a href="/board/get?bno=${board.bno }"><c:out value="${board.title }" /></a></td>
+	                        <!-- <td><a href="/board/get?bno=${board.bno }"><c:out value="${board.title }" /></a></td> -->
+	                        <td><a href="${board.bno }" class="move"><c:out value="${board.title}"/></a></td>
+	                        
 	                        <td><c:out value="${board.writer }" /></td>
 	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></td>
 	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }" /></td>
@@ -122,6 +124,18 @@
 			//this는 클릭한 번호
 			//액션폼 인풋태그에 페이지넘 값을 찾아서,
 			//href로 받은 값으로 대처함
+			actionForm.submit();
+		});
+		
+		//제목 클릭시 상세 페이지로 넘어가는 명령
+		$(".move").on("click", function(e) {
+			e.preventDefault();
+			actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
+			//append : 요소 추가
+			//액션폼 요소에 bno를 추가하면서 클릭한 제목의 bno을 전달.
+			actionForm.attr("action", "/board/get");
+			// 기존 목록 이동 대신에 글읽기 페이지로 액션을 변경.
+			// 즉, get으로 이동하면서, bno, pageNum, pageAmount를 전달
 			actionForm.submit();
 		});
 	});

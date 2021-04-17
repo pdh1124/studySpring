@@ -39,7 +39,9 @@
 			
 			<!-- 게시물의 번호를 전달하기 위해 폼의 hidden으로 전달 -->
 			<form id="operForm" action="/board/modify" method="get">
-				<input type="hedden" id="bno" name="bno" value="${board.bno }" /> 
+				<input type="hidden" id="bno" name="bno" value="${board.bno }" />
+				<input type="hidden" name="pageNum" value="${cri.pageNum }" />
+				<input type="hidden" name="amount" value="${cri.amount }" /> 
 			</form>
 			
          </div>
