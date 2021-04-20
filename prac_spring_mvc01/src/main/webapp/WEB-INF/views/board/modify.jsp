@@ -19,6 +19,8 @@
 				<input type="hidden" name="bno" value="${board.bno}" />
 				<input type="hidden" name="pageNum" value="${cri.pageNum }" />
 				<input type="hidden" name="amount" value="${cri.amount }" />
+				<input type="hidden" name="type" value="${cri.type }">
+        		<input type="hidden" name="keyword" value="${cri.keyword }">
 				
 	            <div class="form-group">
 	            	<label>Title</label>
@@ -74,10 +76,14 @@
 				// method = "get"
 				var pageNumTag = $("input[name='pageNum']");
 				var amountTag = $("input[name='amount']");
+				var keywordTag = $("input[name='keyword']");
+				var typeTag = $("input[name='type']");
 				
 				formObj.empty(); //폼의 내용들 비우기 - 목록으로 가는데 굳이 글번호,제목,내용 등을 가져갈 필요가 없기 때문에
 				formObj.append(pageNumTag);
 				formObj.append(amountTag);
+				formObj.append(keywordTag);
+				formObj.append(typeTag);
 				
 			}
 			formObj.submit();

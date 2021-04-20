@@ -1,5 +1,6 @@
 package kr.icia.mapper;
 
+
 import java.util.List;
 
 import org.junit.Test;
@@ -17,6 +18,7 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
 public class BoardMapperTests {
+	
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 	
@@ -87,4 +89,5 @@ public class BoardMapperTests {
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		list.forEach(board -> log.info(board.getBno()));
 	}
+	
 }

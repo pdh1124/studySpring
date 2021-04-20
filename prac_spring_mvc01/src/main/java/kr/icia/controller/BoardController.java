@@ -104,6 +104,8 @@ public class BoardController {
 		rttr.addAttribute("amount", cri.getAmount());
 		//addFlashAttribute : 1회성, url 표시창에 전달되지 않음.
 		//addAttribute : 지속, url 표시됨
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 	}
@@ -122,6 +124,8 @@ public class BoardController {
 		rttr.addAttribute("amount", cri.getAmount());
 		//addFlashAttribute : 1회성, url 표시창에 전달되지 않음.
 		//addAttribute : 지속, url 표시됨
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 	}
