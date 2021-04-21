@@ -71,5 +71,8 @@
 			operForm.find("#bno").remove();
 			operForm.attr("action", "/board/list").submit();
 		});
+	
 	});
+	
 </script>
+<script type="text/javascript" src="/resources/js/reply.js"></script>
