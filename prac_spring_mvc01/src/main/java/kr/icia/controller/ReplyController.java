@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,5 +66,13 @@ public class ReplyController {
 	public ResponseEntity<ReplyVO> get(@PathVariable("rno") Long rno) {
 		log.info("get: " + rno);
 		return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
+	}
+	
+	//댓글 삭제
+	@DeleteMapping(value = "/{rno}", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> remove(@PathVariable("rno") Long rno) {
+		log.info("remove: " + rno);
+		
+		return service.remove(rno) == 1 ? new ResponseEntity<>("success", HttpStatus.OK) : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
