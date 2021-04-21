@@ -135,7 +135,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="http://localhost:9090/board/list">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>

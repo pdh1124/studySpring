@@ -57,12 +57,17 @@
 
 <script>
 	$(document).ready(function() {
-		var operForm = $("#operForm");
+		/*문서가 준비가 됐다면, 아래 함수 수행. */
+		var operForm = $("#operForm"); /*문서중 form 요소를 찾아서 변수에 할당*/
 		$('button[data-oper="modify"]').on("click", function(e) {
+			//버튼을 클릭했다면? (버튼 속성에 [data-oper="modify"]속성이 있다면 실행)
+			//버튼이 클릭된다면 아래 함수 수행, e라는 이벤트 객체를 전달하면서
 			operForm.attr("action","/board/modify").submit();
+			//즉, get 방식으로 bno 전달하면서 modify 로 이동.
 		});
 		
 		$('button[data-oper="list"]').on("click", function(e) {
+			//버튼을 클릭했다면? (버튼 속성에 [data-oper="list"]속성이 있다면 실행)
 			operForm.find("#bno").remove();
 			operForm.attr("action", "/board/list").submit();
 		});

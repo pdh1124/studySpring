@@ -7,12 +7,12 @@
 	
 	<!-- 등록 -->
 	<insert id="insert">
-		insert into tbl_reply (rno, bno, reply, replyer) values (seq_reply.nextval, #{bno},#{reply},#{replyer})
+		insert into tbl_reply(rno, bno, reply, replyer) values (seq_reply.nextval, #{bno},#{reply},#{replyer})
 	</insert>
 	
 	<!-- 게시물당 조회가 아니라 댓글1개 조회 -->
 	<select id="read" resultType="kr.icia.domain.ReplyVO">
-		select * from tbl_reply where rno_#{rno}
+		select * from tbl_reply where rno=#{rno}		
 	</select>
 	
 	<!-- 삭제 -->

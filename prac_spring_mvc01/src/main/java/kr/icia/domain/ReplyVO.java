@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ReplyVO {
 	
-	private Long rno; //덧글 번호
+	private Long rno; //댓글 번호
 	private Long bno; //게시물 번호
 	
 	private String reply; //댓글 내용
