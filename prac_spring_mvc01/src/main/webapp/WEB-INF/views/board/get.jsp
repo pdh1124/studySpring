@@ -188,15 +188,45 @@
 			});
 		});
 		
-		replyService.getList({
+		/*replyService.getList({
 			bno : bnoValue,
 			page : 1
 		}, function(list) {
 			for (var i = 0, len = list.length || 0; i < len; i++) {
 				console.log(list[i]);
 			}
-		});
-
+		});*/
+		
+		//상세페이지에 댓글 구현
+		var replyUL = $(".chat");
+		// reply Unorderd List
+		
+		function showList(page) {
+			replyService.getList({
+				bno : bnoValue,
+				page : page || 1
+			}, 
+			function(list) {
+				var str = "";
+				if(list == null || list.length == 0) {
+					replyUL.html("");
+					return;
+				}
+				for(var i = 0, len = list.length || 0; i < len; i++) {
+					str += "<li class'left clearfix' data-rno='" + list[i].rno + "'>";
+					str += "<div>"
+					str += "<div class='header'>";
+					str += "<strong class='primary-font'>" + list[i].replyer + "</strong>";
+					str += "<small class='float-sm-right'>" + list[i].replyDate + "</small>";
+					str += "</div>"
+					str += "<p>" + list[i].reply + "</p>";
+					str += "</div>"
+					str += "</li>"
+				}
+				replyUL.html(str);
+			});
+		}
+		showList(1);
 	});
 	
 </script>
