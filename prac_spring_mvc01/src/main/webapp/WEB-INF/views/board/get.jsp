@@ -150,6 +150,10 @@
 		// 댓글 내용
 		var modalInputReplyer = modal.find("input[name='replyer']");
 		// 댓글 작성자.
+		var modalModBtn = $("#modalModBtn");
+		// 수정 버튼
+		var modalRemoveBtn = $("#modalRemoveBtn");
+		// 삭제 버튼
 		
 		$("#addReplyBtn").on("click", function(e) {
 			// 댓글 쓰기 버튼을 클릭하다면,
@@ -185,6 +189,7 @@
 				modal.find("input").val("");
 				//모달창 초기화
 				modal.modal("hide");//모달창 숨기기
+				showList(-1); //댓글 등록 후 댓글 목록 갱신을 위해서 목록 함수를 호출.
 			});
 		});
 		
@@ -197,6 +202,29 @@
 			}
 		});*/
 		
+		//댓글을 클릭하면 수정하는 기능
+		$(".chat").on("click", "li", function(e) {
+			//클래스 chat 을 클릭하는데, 하위 요소가 li라면,
+			var rno = $(this).data("rno");
+			//댓글에 포함된 값들 중에서 rno를 추출하여 변수 할당.
+			console.log(rno);
+			replyService.get(rno,function(reply) {
+				modalInputReply.val(reply.reply);
+				modalInputReplyer.val(reply.replyer);
+				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly","readonly");
+				//readonly : 읽기 전용
+				//댓글 목록의 값들을 모달창에 할당
+				
+				modal.data("rno",reply.rno); //표시되는 모달창에 rno라는 이름으로 data-rno를 저장
+				modal.find("button[id !='modalCloseBtn']").hide();
+				modalModBtn.show();
+				modalRemoveBtn.show();
+				//버튼 보이기 설정.
+				
+				$("#myModal").modal("show");
+			});	
+		});
+			
 		//상세페이지에 댓글 구현
 		var replyUL = $(".chat");
 		// reply Unorderd List
@@ -217,7 +245,7 @@
 					str += "<div>"
 					str += "<div class='header'>";
 					str += "<strong class='primary-font'>" + list[i].replyer + "</strong>";
-					str += "<small class='float-sm-right'>" + list[i].replyDate + "</small>";
+					str += "<small class='float-sm-right'>" + replyService.displayTime(list[i].replyDate) + "</small>";
 					str += "</div>"
 					str += "<p>" + list[i].reply + "</p>";
 					str += "</div>"
