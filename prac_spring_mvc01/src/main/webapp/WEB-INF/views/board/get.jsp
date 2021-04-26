@@ -193,6 +193,30 @@
 			});
 		});
 		
+		//댓글의 모달창에서 수정을 눌렀을때 동작하는 부분
+		modalModBtn.on("click", function(e) {
+			var reply = {
+				rno : modal.data("rno"),
+				reply : modalInputReply.val()
+			};
+			replyService.update(reply, function(result) {
+				alert(result);
+				modal.modal("hide");
+				showList(-1);
+			});
+		});
+		
+		//댓글 삭제기능
+		modalRemoveBtn.on("click", function(e) {
+			var rno = modal.data("rno");
+			replyService.remove(rno, function(result) {
+				alert(result);
+				modal.modal("hide");
+				showList(-1); //아직 페이징 처리를 하지 않아서 -1로 임시로 구분함. 나중에 페이징 처리를 하게되면 페이지가 들어갈 예정
+			});
+		});
+		
+		
 		/*replyService.getList({
 			bno : bnoValue,
 			page : 1
@@ -254,7 +278,7 @@
 				replyUL.html(str);
 			});
 		}
-		showList(1);
+		showList(1);//아직 페이징 처리를 하지 않아서 -1로 임시로 구분함. 나중에 페이징 처리를 하게되면 페이지가 들어갈 예정
 	});
 	
 </script>

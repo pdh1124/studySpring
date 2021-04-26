@@ -112,6 +112,23 @@ var replyService = (function() { //자바스크립트는 함수를 변수에 할
 		})
 	}
 	
+	//댓글 삭제
+	function remove(rno, callback, error) {
+		$.ajax({
+			type : 'delete',
+			url : '/replies/' + rno,
+			success : function(deleteResult, status, xhr) {
+				if(callback) {
+					callback(deleteResult);
+				}
+			},
+			error : function(xhr, status, er) {
+				if (error) {
+					error(er);
+				}
+			}
+		});
+	}
 	
 	return {
 	// 변수명,호출명 예) replyService.add
@@ -120,7 +137,8 @@ var replyService = (function() { //자바스크립트는 함수를 변수에 할
 		getList: getList,
 		displayTime: displayTime,
 		update: update,
-		get: get
+		get: get,
+		remove : remove
 	};
 })(); // 즉시 실행 함수 : 끝부분이 ();식으로 끝나면 명시하는 것과 동시에 메모리에 등록
 
