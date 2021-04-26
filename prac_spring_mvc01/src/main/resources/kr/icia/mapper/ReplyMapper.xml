@@ -31,18 +31,20 @@
 		from
 		<![CDATA[
 		(select /*+INDEX(tbl_reply idx_reply) */ 
-		rownum rn, rno, bno, reply, replyer, replyDate, updatedeta 
+		rownum rn, rno, bno, reply, replyer, replydate, updatedate 
 		from tbl_reply 
 		where bno=${bno} 
 		and rno > 0 
 		and rownum <= #{cri.pageNum} * #{cri.amount}
 		) where rn > (#{cri.pageNum}-1) * #{cri.amount}
-		]]> 
-		
-		
-			<!--  tbl_reply 
-		where bno=#{bno} 
-		order by rno asc-->
+		]]>
+	</select>
+	
+	<!-- 게시물별 댓글의 총갯수 리턴 -->
+	<select id="getCountByBno" resultType="int">
+	 	select count(rno) 
+	 	from tbl_reply 
+	 	where bno=#{bno}
 	</select>
 
 </mapper>
