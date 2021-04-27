@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 패키지명의 인터페이스와 매칭하기 위한 명시  -->
+<mapper namespace="kr.icia.mapper.BoardAttachMapper">
+
+	<insert id="insert">
+		insert into tbl_attach (uuid, uploadpath, filename, filetype, bno)
+		values (#{uuid},#{uploadPath},#{fileName},#{fileType},#{bno})
+	</insert>
+	
+	<delete id="delete">
+		delete from tbl_attach where uuid=#{uuid}
+	</delete>
+	
+	<select id="findByBno" resultType="kr.icia.domain.BoardAttachVO">
+		select * from tbl_attach where bno=#{bno}
+	</select>
+
+</mapper>

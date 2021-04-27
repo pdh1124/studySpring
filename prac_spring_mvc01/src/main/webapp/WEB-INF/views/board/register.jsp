@@ -45,5 +45,24 @@
    </div>
 </div>
 
+<br />
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<div class="panel-body">
+				<!-- 파일을 입력(첨부)하는 부분 -->
+				<div clss="form-group uploadDiv">
+					파일 첨부 : <input type="file" name="uploadFile" multiple>
+				</div>
+				<!-- 파일 첨부한 것을 보여주는 부분 -->
+				<div class="uploadResult">
+					<ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <%@ include file="../includes/footer.jsp"%>

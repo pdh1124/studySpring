@@ -23,6 +23,19 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		
+		<!-- 첨부파일 설정 값 -->
+		<multipart-config>
+			<location>c:\\upload\\temp</location>
+			<!-- 저장할 경로 -->
+			<max-file-size>20971520</max-file-size>
+			<!-- byte 기본 단위 1024, 1024 1개 파일의 최대 업로드 용량은 20MB -->
+			<max-request-size>41943040</max-request-size>
+			<!-- 동시에 업로드 하는 파일들의 총 크기 -->
+			<file-size-threshold>20971520</file-size-threshold>
+			<!-- 스트림으로 처리할 수 있는 최대 크기를 초과하면 임시파일로 저장후 업로드 -->
+		</multipart-config>
+		
 	</servlet>
 		
 	<servlet-mapping>
