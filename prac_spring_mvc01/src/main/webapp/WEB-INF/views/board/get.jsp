@@ -258,7 +258,22 @@
 				bno : bnoValue,
 				page : page || 1
 			}, 
-			function(list) {
+			function(replyCnt, list) {
+				
+				console.log("replyCnt : " + replyCnt);
+				
+				if(page == -1) {
+					//페이지 번호가 음수 값 이라면,
+					//댓글 목록 갱신하기 위한 임의의 숫자가 -1
+					//가장 최근에 등록한 댓글을 표시
+					pageNum = Math.ceil(replyCnt/10.0);
+					// 댓글의 마지막 페이지 구하기.
+					console.log("page : " + pageNum);
+					showList(pageNum);
+					//댓글 목록 새로고침(갱신)
+					return;
+				}
+				
 				var str = "";
 				if(list == null || list.length == 0) {
 					replyUL.html("");

@@ -20,4 +20,6 @@ public interface ReplyMapper {
 			@Param("cri") Criteria cri,
 			@Param("bno") Long bno);
 	//페이지 정보와 게시물 번호를 전달.
+
+	public int getCountByBno(Long bno);
 }

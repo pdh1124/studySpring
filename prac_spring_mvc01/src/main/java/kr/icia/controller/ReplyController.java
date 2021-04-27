@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.icia.domain.Criteria;
+import kr.icia.domain.ReplyPageDTO;
 import kr.icia.domain.ReplyVO;
 import kr.icia.service.ReplyService;
 import lombok.AllArgsConstructor;
@@ -50,14 +51,14 @@ public class ReplyController {
 	
 	// 댓글을 게시판목록에 표시
 	@GetMapping(value = "/pages/{bno}/{page}", produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<List<ReplyVO>> getList(@PathVariable("page") int page, @PathVariable("bno") Long bno) {
+	public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page, @PathVariable("bno") Long bno) {
 		// @PathVariable : url로 넘겨받은 값 이용
 		
 		log.info("getList......");
 		Criteria cri = new Criteria(page, 10);
 		log.info(cri);
 		
-		return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
+		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
 		//T<List<ReplyVO>> t = new T<>();
 		//댓글 목록을 출력하고, 정상 처리 상태를 리턴
 	}

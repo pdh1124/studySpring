@@ -37,10 +37,10 @@ var replyService = (function() { //자바스크립트는 함수를 변수에 할
 		var bno = param.bno;
 		var page = param.page || 1;
 		//페이지 번호가 있으면 페이지 번호 전달 없으면 1 전달.
-		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
-				function(data) {
+		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",				
+				function(data) {	
 					if (callback) {
-						callback(data);
+						callback(data.replyCnt, data.list);
 					}
 				}).fail(function(xhr, status, err) {
 			// xhr : xml http request의 약자.

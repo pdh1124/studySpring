@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.icia.domain.Criteria;
+import kr.icia.domain.ReplyPageDTO;
 import kr.icia.domain.ReplyVO;
 import kr.icia.mapper.ReplyMapper;
 import lombok.AllArgsConstructor;
@@ -51,6 +52,12 @@ public class ReplyServiceImp implements ReplyService {
 	public List<ReplyVO> getList(Criteria cri, Long bno) {
 		log.info("get Reply list......"+bno);
 		return mapper.getListWithPaging(cri, bno);
+	}
+
+	@Override
+	public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+		return new ReplyPageDTO(mapper.getCountByBno(bno),mapper.getListWithPaging(cri, bno));
+		//각각의 매퍼를 이용하여 댓글의 갯수와 댓글의 목록 추출.
 	}
 
 }
