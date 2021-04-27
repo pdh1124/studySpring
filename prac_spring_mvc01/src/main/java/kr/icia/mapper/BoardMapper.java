@@ -2,6 +2,8 @@ package kr.icia.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import kr.icia.domain.BoardVO;
 import kr.icia.domain.Criteria;
 
@@ -26,4 +28,7 @@ public interface BoardMapper {
 	public List<BoardVO> getListWithPaging(Criteria cri); //페이징
 	
 	public int getTotalCount(Criteria cri); //총 게시물 갯수 파악.
+	
+	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
+	//게시물별 댓글의 갯수 표시
 }

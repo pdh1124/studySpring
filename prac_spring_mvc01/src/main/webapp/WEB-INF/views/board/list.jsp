@@ -34,7 +34,11 @@
 	                    <tr>
 	                        <td><c:out value="${board.bno }" /></td>
 	                        <!-- <td><a href="/board/get?bno=${board.bno }"><c:out value="${board.title }" /></a></td> -->
-	                        <td><a href="${board.bno }" class="move"><c:out value="${board.title}"/></a></td>
+	                        <td><a href="${board.bno }" class="move"><c:out value="${board.title}"/>	               
+		                        <c:if test="${board.replyCnt ne 0 }">
+		                        	<span style="color:red;"><c:out value="[${board.replyCnt }]" /></span>
+		                        </c:if>
+	                        </a></td>
 	                        
 	                        <td><c:out value="${board.writer }" /></td>
 	                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></td>

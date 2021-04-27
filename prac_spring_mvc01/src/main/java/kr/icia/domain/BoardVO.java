@@ -1,6 +1,7 @@
 package kr.icia.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -12,4 +13,7 @@ public class BoardVO {
 	private String writer;
 	private Date regdate;
 	private Date updateDate;
+	
+	private int replyCnt;
+	private List<BoardAttachVO> attachList;
 }

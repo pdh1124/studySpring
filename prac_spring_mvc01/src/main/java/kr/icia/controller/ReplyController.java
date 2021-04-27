@@ -52,6 +52,9 @@ public class ReplyController {
 	// 댓글을 게시판목록에 표시
 	@GetMapping(value = "/pages/{bno}/{page}", produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page, @PathVariable("bno") Long bno) {
+		// 기존 코드 : ResponseEntity<List<ReplyVO>>
+		// 댓글에 관한 페이징({page})
+		// produces : 처리 결과를 저렇게 보여주겠다.
 		// @PathVariable : url로 넘겨받은 값 이용
 		
 		log.info("getList......");

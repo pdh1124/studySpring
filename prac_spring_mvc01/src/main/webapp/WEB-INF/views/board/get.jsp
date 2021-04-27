@@ -67,7 +67,7 @@
 					<li>good</li>
 				</ul>
 			</div>
-			<div clas="panel-footer"></div>
+			<div class="panel-footer"></div>
 		</div>
 	</div>
 </div>
@@ -291,9 +291,60 @@
 					str += "</li>"
 				}
 				replyUL.html(str);
+				showReplyPage(replyCnt);
 			});
 		}
 		showList(1);//아직 페이징 처리를 하지 않아서 -1로 임시로 구분함. 나중에 페이징 처리를 하게되면 페이지가 들어갈 예정
+		
+		/*댓글 페이징 시작*/
+		var pageNum = 1;
+		var replyPageFooter = $(".panel-footer");
+		
+		function showReplyPage(replyCnt) {
+			var endNum = Math.ceil(pageNum/10.0) * 10;
+			//pageNum : 1이라고 가정한다면,
+			//Math.ceil(1/10.0) 처리하고 *10, 즉 endNum : 10
+			var startNum = endNum - 9; // -가 나올수도 있다.
+			var prev = startNum != 1; // false = (1 != 1)
+			var next = false;
+	
+			//예를 들어, replyCnt : 384, endNum : 39 
+			if(endNum * 10 >= replyCnt) { // 100 >= 384니까 실행 안함
+				endNum = Math.ceil(replyCnt / 10.0);
+			}
+			if(endNum * 10 < replyCnt) {
+				next = true;
+			}
+			var str = "<ul class='pagination justify-content-center'>"
+			if(prev) { //이전으로 가는 버튼
+				str += "<li class='page-item'>";
+				str += "<a class='page-link' href='" + (startNum - 1) + "'>이전</a>";
+				str += "</li>";
+			}
+			for(var i = startNum; i <= endNum; i++) { //페이징 1,2,3,4...
+				var active = pageNum == i ? "active" : "";
+				str += "<li class='page-item " + active + "'>"; //현재 페이지를 파란색 표시
+				str += "<a class='page-link' href='" + i + "'>" + i + "</a>";
+				str += "</li>";
+			}
+			if(next) { //다음으로 가는 버튼
+				str += "<li class='page-item'>";
+				str += "<a class='page-link' href='" + (endNum + 1) + "'>다음</a>"
+				str += "</li>";
+			}
+			str += "</ul>";
+			console.log(str);
+			replyPageFooter.html(str);
+		}
+		/*댓글 페이징 끝*/
+		
+		//페이징을 누를 때 페이지 이동
+		replyPageFooter.on("click", "li a", function(e) {
+			e.preventDefault(); //이벤트를 초기화를 하고
+			var targetPageNum = $(this).attr("href"); //href에 있는 i값을 가져와서
+			pageNum = targetPageNum; //pageNum에 i값을 넣는다.
+			showList(pageNum);
+		});
 	});
 	
 </script>

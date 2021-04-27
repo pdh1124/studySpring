@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.icia.domain.Criteria;
 import kr.icia.domain.ReplyPageDTO;
 import kr.icia.domain.ReplyVO;
+import kr.icia.mapper.BoardMapper;
 import kr.icia.mapper.ReplyMapper;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -23,10 +25,16 @@ public class ReplyServiceImp implements ReplyService {
 	// 매퍼를 조작할 수 있도록 멤버 변수를 생성하고,
 	// 객체를 자동 초기화 하고 있음
 	
+	@Setter(onMethod_ = @Autowired)
+	private BoardMapper boardMapper;
+	// 게시물 테이블과 댓글 테이블은 동시에 동작하거나 취소 되어야함
+	// @Transactional 이용. 2개의 쿼리문을 동시에 움직이게 할 때 사용
 	
+	@Transactional
 	@Override
 	public int register(ReplyVO vo) {
 		log.info("register......"+vo);
+		boardMapper.updateReplyCnt(vo.getBno(), 1);
 		return mapper.insert(vo);
 	}
 
@@ -35,10 +43,13 @@ public class ReplyServiceImp implements ReplyService {
 		log.info("get......"+rno);
 		return mapper.read(rno);
 	}
-
+	
+	@Transactional
 	@Override
 	public int remove(Long rno) {
 		log.info("remove......"+rno);
+		ReplyVO vo =mapper.read(rno);
+		boardMapper.updateReplyCnt(vo.getBno(), -1);
 		return mapper.delete(rno);
 	}
 
