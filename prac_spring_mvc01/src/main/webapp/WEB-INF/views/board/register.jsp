@@ -118,9 +118,68 @@ $(document).ready(function(e) {
 			dataType:'json',
 			success:function(result) {
 				console.log(result);
+				showUploadReuslt(result);
 			}	
 		});
 	});
+	
+	//글쓰기 폼에 첨부파일을 등록 할 경우 목록에 꾸리기
+	function showUploadReuslt(uploadResultArr) {
+		if (!uploadResultArr || uploadResultArr.ength == 0) {
+			//json 처리 경과가 없다면 함수 종료.
+			return;
+		}
+		
+		var uploadUL = $('.uploadResult ul');
+		var str = "";
+		
+		// each 구문은 전달된 배열의 길이 만큼,
+		// each 이후의 함수를 반복 처리.
+		// https://api.jquery.com/jQuery.each/#jQuery-each-array-callback
+		$(uploadResultArr).each(function(i, obj) {
+			
+			var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_"+ obj.fileName);
+			// encodeURIComponent : 
+			// uri 로 전달되는 특수문자의 치환
+			// & ?
+			// 파일의 직접적인 경로를 알 수 있음
+			
+			var fileLink = fileCallPath.replace(new RegExp(/\\/g), "/");
+			//전달 되는 값들 중에서 역슬러시를 찾아서 슬러시로 변경.
+			
+			str += "<li data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "' data-type='" + obj.image + "'>";
+			str += "<div>";
+			str += "<img src='/resources/img/attach.png' width='20' height='20'>";
+			str += "<span>" + obj.fileName + "</span> ";
+			str += "<b data-file='" + fileCallPath + "' data-type='file'>[x]</b>";
+			str += "</div>";
+			str += "</li>";
+		});
+		uploadUL.append(str);
+	}
+	
+	//[x]를 클릭했을때 목록에서 지우기
+	$(".uploadResult").on("click", "b", function(e) {
+		console.log("delete file");
+		
+		var targetFile = $(this).data("file");
+		var type = $(this).data("type");
+		var targetLi = $(this).closest("li");
+		
+		$.ajax({
+			url: '/deleteFile',
+			data : {
+				fileName : targetFile,
+				type : type
+			},
+			dataType: 'text',
+			type : 'POST',
+			success : function(result) {
+				alert(result);
+				targetLi.remove();
+			}
+		})
+	})
 });
 </script>
 

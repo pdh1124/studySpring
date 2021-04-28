@@ -1,6 +1,7 @@
 package kr.icia.controller;
 
 import java.io.File;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -96,5 +97,26 @@ public class UploadController {
 		// 모든 운영체제에 맞게 변경이 된다.
 		// 2021-04-28
 		// 2021/04/28로 결과적으로 날짜별로 파일 저장. 
+	}
+	
+	//파일 삭제 
+	@PostMapping("/deleteFile")
+	@ResponseBody
+	public ResponseEntity<String> deleteFile(String fileName, String type) {
+		
+		log.info("deleteFile: "	+ fileName);
+		File file;
+		
+		try {
+			file = new File("c:\\upload\\" + URLDecoder.decode(fileName,"UTF-8"));
+			// 한글의 경우, 페이지 전환시 변경됨.
+			// 알맞는 문자 포맷으로 해석해서 읽어 들여야 함.
+			file.delete();
+			//파일 삭제.
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
 }
