@@ -46,5 +46,10 @@
 	 	from tbl_reply 
 	 	where bno=#{bno}
 	</select>
+	
+	<!-- 게시물 삭제시 댓글도 같이 삭제 -->
+	<delete id="deleteAll">
+		delete from tbl_reply where bno=#{bno}
+	</delete>
 
 </mapper>

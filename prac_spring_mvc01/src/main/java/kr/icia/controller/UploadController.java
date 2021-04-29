@@ -139,7 +139,7 @@ public class UploadController {
 		//헤더의 User-Agent를 보면 알 수 있음.
 		
 		//import org.springframework.core.io.Resource;
-		Resource resource = new FileSystemResource("c:\\upload" + fileName);
+		Resource resource = new FileSystemResource("c:\\upload\\" + fileName);
 		//파일을 리소스(자원: 가공 처리를 위한 중간 단계)로 변경. 파일을 비트값으로 전환.
 		log.info("resource: " + resource);
 		

@@ -11,6 +11,7 @@ import kr.icia.domain.BoardVO;
 import kr.icia.domain.Criteria;
 import kr.icia.mapper.BoardAttachMapper;
 import kr.icia.mapper.BoardMapper;
+import kr.icia.mapper.ReplyMapper;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
@@ -21,6 +22,9 @@ public class BoardServiceImp implements BoardService {
 
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
+	
+	@Setter(onMethod_ = @Autowired)
+	private ReplyMapper replyMapper;
 	
 	@Setter(onMethod_ = @Autowired)
 	private BoardAttachMapper attachMapper;
@@ -57,10 +61,14 @@ public class BoardServiceImp implements BoardService {
 		log.info("modify......" + board);
 		return mapper.update(board) == 1; //update가 1이 리턴되고 같다면 true, 아니면 false
 	}
-
+	
+	@Transactional
 	@Override
 	public boolean remove(Long bno) {
 		log.info("remove......"+bno);
+		replyMapper.deleteAll(bno);  //댓글을 삭제하고
+		attachMapper.deleteAll(bno); //첨부파일을 삭제한다.
+		 //첨부파일과 댓글은 게시물이 존재해야 존재한다(자식과 부모의 관계)
 		return (mapper.delete(bno)) == 1; ////delete가 1이 리턴되고 같다면 true, 아니면 false
 	}
 
