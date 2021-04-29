@@ -1,5 +1,10 @@
 package kr.icia.controller;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.icia.domain.BoardAttachVO;
 import kr.icia.domain.BoardVO;
 import kr.icia.domain.Criteria;
 import kr.icia.domain.PageDTO;
@@ -52,7 +59,7 @@ public class BoardController {
 	
 	//글쓰기 버튼을 누르면, 게시물 입력폼 보이기
 	@GetMapping("/register")
-	public void register() {
+	public void register() {	
 		//이동할 주소를 리턴하지 않는다면, 요청한 이름으로의 jsp 파일을 찾음.
 	}
 	
@@ -69,6 +76,12 @@ public class BoardController {
 		rttr.addFlashAttribute("result", board.getBno());
 		//리다이렉트 시키면서 1회용 값을 전달.
 		//Flash가 1회용이라는 뜻
+		
+		//첨부파일이 있다면 log로 찍어보기
+//		if (board.getAttachList() != null) { //첨부파일이 있다면,
+//			board.getAttachList().forEach(attach -> log.info(attach));
+//			//첨부파일의 각 요소를 로그로 출력.
+//		}
 		
 		return "redirect:/board/list";
 	}
@@ -128,5 +141,14 @@ public class BoardController {
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
+	}
+	
+	
+	//
+	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<BoardAttachVO>> getAttachList(Long bno) {
+		log.info("getAttachList: " + bno);
+		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
 	}
 }

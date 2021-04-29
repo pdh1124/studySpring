@@ -52,6 +52,24 @@
    </div>
 </div>
 
+<!-- 첨부파일 시작 -->
+<br />
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panal-heading">첨부파일</div>
+			<div class="panal-body">
+				<div class="uploadResult">
+					<ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 첨부파일 끝 -->
+
+
 <!-- 댓글 목록 시작 -->
 <br/>
 <div class="row">
@@ -344,6 +362,36 @@
 			var targetPageNum = $(this).attr("href"); //href에 있는 i값을 가져와서
 			pageNum = targetPageNum; //pageNum에 i값을 넣는다.
 			showList(pageNum);
+		});
+		
+		//첨부파일 목록 표시
+		(function() {
+			var bno = '<c:out value="${board.bno}"/>';
+			//화면상에 공유된 bno값을 가져와 사용 준비.
+			$.getJSON("/board/getAttachList",{bno:bno}, function(arr) {
+				console.log(arr);
+				var str="";
+				
+				$(arr).each(function(i,attach){
+					str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType + "'>";
+					str += "<div>";
+					str += "<img src='/resources/img/attach.png' width='20px'>";
+					str += "<span>&nbsp;" + attach.fileName + "</span><br />";
+					str += "</div>";
+					str += "</li>";
+				});
+				$(".uploadResult ul").html(str);
+			});
+		})(); //즉시 실행 함수
+		
+		//첨부파일 클릭시 다운로드 처리 스크립트.
+		$(".uploadResult").on("click", "li", function(e) {
+			console.log("download file");
+			var liObj =$(this);
+			var path = encodeURIComponent(liObj.data("path") + "/" + liObj.data("uuid") + "_" + liObj.data("filename"));
+			// c:\upload\2021\04\29\uuid_fileName.ext 로 됨
+			console.log("/download?fileName="+path);
+			//self.location="/download?fileName="+path;
 		});
 	});
 	

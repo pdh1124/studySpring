@@ -71,8 +71,32 @@ $(document).ready(function(e) {
 	var formObj=$("form[role='form']");
 	
 	$("button[type='submit']").on("click",function(e) {	
-		e.preventDefault();
+		e.preventDefault(); //submit를 막아둔다.
 		console.log("submit clicked");
+		
+		//글 등록 버튼을 누르면 첨부파일의 정보도함께 전송 되도록 수정.
+		var str = "";
+		$(".uploadResult ul li").each(function(i,obj){ // 첨부파일의 목록을 가져와서
+			// i : 순서
+			// obj : 요소(첨부파일 목록 1개)
+			var jobj = $(obj); //첨부파일의 요소(첨부파일 목록 1개)를 재할당
+			console.dir(jobj); //오브젝트의 여러 속성들을 한눈에 표시.
+			// dir 해당 값의 모든 요소들을 확인한다.
+			console.log("-----------------");
+			console.log(jobj.data("filename"));
+			
+			//첨부파일이 여러개라면 i개 만큼 계속 나온다.
+			str += "<input type='hidden' name='attachList[" + i + "].fileName' value='" + jobj.data("filename") + "'>";
+			
+			str += "<input type='hidden' name='attachList[" + i + "].uuid' value='" + jobj.data("uuid") + "'>";
+			
+			str += "<input type='hidden' name='attachList[" + i + "].uploadPath' value='" + jobj.data("path") + "'>";
+			
+			str += "<input type='hidden' name='attachList[" + i + "].fileType' value='" + jobj.data("type") + "'>";		
+		});
+		formObj.append(str).submit();
+		// 첨부파일의 정보들을 li의 data 값으로 가지고 있다가
+		// hidden 으로 폼에 포함	
 	});
 	
 	var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
