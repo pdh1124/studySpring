@@ -1,5 +1,8 @@
 package kr.icia.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -126,29 +129,53 @@ public class BoardController {
 	
 	//삭제
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, Criteria cri) {
+	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, @ModelAttribute("cri") Criteria cri) {
 		
 		log.info("remove..." + bno);
+		List<BoardAttachVO> attachList = service.getAttachList(bno);
+		
 		if(service.remove(bno)) {
+			deleteFiles(attachList); //서버디스크의 파일 정보 삭제
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
+//		rttr.addAttribute("pageNum", cri.getPageNum());
+//		rttr.addAttribute("amount", cri.getAmount());
 		//addFlashAttribute : 1회성, url 표시창에 전달되지 않음.
 		//addAttribute : 지속, url 표시됨
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+//		rttr.addAttribute("type", cri.getType());
+//		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/list";
+		//return "redirect:/board/list";
+		return "redirect:/board/list" + cri.getListLink();
+		//pageNum,amount,type,keyword를 getListLink에 한번에 전달
 	}
 	
 	
-	//
+	//게시물번호를 이용해서 첨부파일의 목록을 가져와서 리스트 타입으로 만들어서 ResponseEntity로 만들어서 전달
 	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<List<BoardAttachVO>> getAttachList(Long bno) {
 		log.info("getAttachList: " + bno);
 		return new ResponseEntity<>(service.getAttachList(bno), HttpStatus.OK);
+	}
+	
+	//첨부파일을 각각 찾아서 하나씩 삭제하는 메소드
+	private void deleteFiles(List<BoardAttachVO> attachList) {
+		if (attachList == null || attachList.size() == 0) {
+			return; //리스트가 없거나 첨부파일이 없다면 끝내라,
+		}
+		
+		log.info("delete attach file......");
+		log.info(attachList);
+		
+		attachList.forEach(attach -> {
+			try {
+				Path file = Paths.get("c:\\upload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
+				Files.deleteIfExists(file);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 	}
 }
