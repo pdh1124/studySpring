@@ -56,10 +56,30 @@ public class BoardServiceImp implements BoardService {
 		return mapper.read(bno); 
 	}
 
+	@Transactional
 	@Override
 	public boolean modify(BoardVO board) { //수정할 정보 전달
 		log.info("modify......" + board);
-		return mapper.update(board) == 1; //update가 1이 리턴되고 같다면 true, 아니면 false
+		//return mapper.update(board) == 1; //update가 1이 리턴되고 같다면 true, 아니면 false
+		
+		attachMapper.deleteAll(board.getBno());
+		//디비에서 첨부파일 정보 삭제.
+		
+		boolean modifyResult = false; //게시물 수정 성공 여부.
+		modifyResult = mapper.update(board) == 1;
+		//mapper.update(board)가 1이라면 true
+		
+		int attachList = 0; //첨부파일 갯수
+		if(board.getAttachList() != null) {
+			attachList = board.getAttachList().size();
+		}
+		if(modifyResult && attachList > 0) {
+			board.getAttachList().forEach(attach -> {
+				attach.setBno(board.getBno());
+				attachMapper.insert(attach);
+			});
+		}
+		return modifyResult;
 	}
 	
 	@Transactional

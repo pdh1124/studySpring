@@ -370,8 +370,8 @@
 			//화면상에 공유된 bno값을 가져와 사용 준비.
 			$.getJSON("/board/getAttachList",{bno:bno}, function(arr) {
 				console.log(arr);
-				var str="";
 				
+				var str="";	
 				$(arr).each(function(i,attach){
 					str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType + "'>";
 					str += "<div>";
