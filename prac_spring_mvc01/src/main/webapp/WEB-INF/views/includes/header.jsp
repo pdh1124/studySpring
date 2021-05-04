@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -331,9 +332,20 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="/resources/img/undraw_profile.svg">
+                                
+                                <!-- 아이디 부분 -->
+                                <sec:authorize access="isAuthenticated()"> <!-- 정상 로그인이라면 -->
+	                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+	                                	<sec:authentication property="principal.username" /> <!-- 세션에 있는 username을 가져와서 보여준다. -->
+	                                </span>
+                                <!-- <img class="img-profile rounded-circle" src="/resources/img/undraw_profile.svg"> -->
+                                </sec:authorize>
+                                <!-- 익명 로그인 -->
+                                <sec:authorize access="isAnonymous()">
+                                	<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"> </i>
+                                </sec:authorize>
+                                
+                                
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -351,10 +363,21 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
-                                </a>
+                                </a> -->
+                                
+                                <sec:authorize access="isAuthenticated()">
+                                	<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"> 
+                                		 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                	</a>
+                                </sec:authorize>
+                                <sec:authorize access="isAnonymous()">
+                                	<a class="drop-down-item" href="/customLogin"> 
+                                		<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Login
+                                	</a>
+                                </sec:authorize>
                             </div>
                         </li>
 
