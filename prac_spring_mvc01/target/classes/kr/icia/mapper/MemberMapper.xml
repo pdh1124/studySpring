@@ -18,7 +18,7 @@
   		<result property="userName" column="username" />
   		<result property="regDate" column="regdate" />
   		<result property="updateDate" column="updatedate" />
-  		<collection property="authList" column="authMap" />
+  		<collection property="authList" resultMap="authMap" />
   	</resultMap>
   	<!-- 회원정보 테이블과 회원 권한 테이블을 조인하여 1개의 타입으로 회원 관련 정보를 리턴 -->
   	
@@ -34,4 +34,5 @@
   	<!-- left outer join : 좌 테이블, 우 테이블이 있을때, 좌테이블을 기준으로 레코드 추출.
   		좌 테이블은 모두 추출, 우테이블은 일차하는 값들 추출.
   		로그인 창에서 입력한 사용자 계정을 넘겨 받아서 일치하는 데이터 검색. -->
+  		
   </mapper>

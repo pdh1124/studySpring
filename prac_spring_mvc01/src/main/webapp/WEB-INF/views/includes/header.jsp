@@ -374,7 +374,7 @@
                                 	</a>
                                 </sec:authorize>
                                 <sec:authorize access="isAnonymous()">
-                                	<a class="drop-down-item" href="/customLogin"> 
+                                	<a class="dropdown-item" href="/customLogin"> 
                                 		<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Login
                                 	</a>
                                 </sec:authorize>
