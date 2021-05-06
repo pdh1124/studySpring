@@ -233,6 +233,12 @@
 					replyer : modalInputReplyer.val(),
 					bno : bnoValue
 			}; //ajax로 전달할 reply 객체 선언 및 할당. reply 변수에 reply 객체를 생성해주기
+			
+			var reply_con=modalInputReply.val();console.log("reply_con:"+reply_con);
+            if(reply_con=="") {
+            	return;
+            };
+			
 			replyService.add(reply, function(result) {
 				alert(result);
 				//ajax 처리후 결과 리턴
