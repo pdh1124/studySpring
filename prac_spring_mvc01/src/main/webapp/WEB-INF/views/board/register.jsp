@@ -24,13 +24,12 @@
 
                <div class="form-group">
                   <label>Text area</label>
-                  <textarea class="form-control" rows="3" 
-                  name='content'></textarea>
+                  <textarea class="form-control" rows="3" name='content'></textarea>
                </div>
                
                <div class="form-group">
                   <label>Writer</label> 
-                  <input class="form-control" name="writer">
+                  <input class="form-control" name="writer" value='<sec:authentication property="principal.username"/>' readonly="readonly">
                </div>
                
                <button type="submit" class="btn btn-default">
@@ -119,6 +118,13 @@ $(document).ready(function(e) {
 		return true; //모든 조건이 아니라면 성공
 	}
 	
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";
+	/*ajax 처리시 csrf 값을 함께 전송하기 위한 준비
+	스프링 시큐리티는 데이터 post 전송시 csrf 값을 꼭 확인 하므로*/
+	
+	
+	
 	$("input[type='file']").change(function(e) {
 		var formData = new FormData();
 		var inputFile=$("input[name='uploadFile']");
@@ -137,6 +143,9 @@ $(document).ready(function(e) {
 			url : '/uploadAjaxAction',
 			processData:false, //processData가 false로 되어 있으면 키와 값의 쌍으로 설정하지 않는다.
 			contentType:false,
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+			},
 			data:formData,
 			type:'POST',
 			dataType:'json',
@@ -195,6 +204,9 @@ $(document).ready(function(e) {
 			data : {
 				fileName : targetFile,
 				type : type
+			},
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
 			},
 			dataType: 'text',
 			type : 'POST',

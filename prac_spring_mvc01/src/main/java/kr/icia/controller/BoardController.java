@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +63,7 @@ public class BoardController {
 	
 	//글쓰기 버튼을 누르면, 게시물 입력폼 보이기
 	@GetMapping("/register")
+	@PreAuthorize("isAuthenticated()") //로그인한 사용자만 접근.
 	public void register() {	
 		//이동할 주소를 리턴하지 않는다면, 요청한 이름으로의 jsp 파일을 찾음.
 	}
@@ -70,6 +72,7 @@ public class BoardController {
 	//글쓰기
 	// jsp 대비로 if~else 분기 처리가 필요 없음
 	@PostMapping("/register")
+	@PreAuthorize("isAuthenticated()") //로그인한 사용자만 접근.
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		//@Controller 어노테이션이 붙고,
 		//컴포넌트 스캔에 패키지가 지정되어 있다면,
@@ -107,7 +110,8 @@ public class BoardController {
 	//수정
 	//post 요청으로 /modify 가 온다면, 아래 메소드 수행.
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr, Criteria cri) {
+	@PreAuthorize("principal.username== #board.writer") //글 작성자와 로그인 계정이 일치해야 수정 가능.
+	public String modify(BoardVO board, RedirectAttributes rttr, @ModelAttribute("cri") Criteria cri) {
 		
 		log.info("modify : " + board);
 		if (service.modify(board)) {
@@ -116,20 +120,21 @@ public class BoardController {
 		//수정이 성공하면 success 메세지가 포함되어 이동
 		//실패해도 메세지 빼고 이동
 		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
+//		rttr.addAttribute("pageNum", cri.getPageNum());
+//		rttr.addAttribute("amount", cri.getAmount());
 		//addFlashAttribute : 1회성, url 표시창에 전달되지 않음.
 		//addAttribute : 지속, url 표시됨
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+//		rttr.addAttribute("type", cri.getType());
+//		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/list";
+		return "redirect:/board/list" + cri.getListLink();
 	}
 	
 	
 	//삭제
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, @ModelAttribute("cri") Criteria cri) {
+	@PreAuthorize("principal.username== #writer") //글 작성자 본인이 삭제가 가능하다.
+	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr, @ModelAttribute("cri") Criteria cri, String writer) {
 		
 		log.info("remove..." + bno);
 		List<BoardAttachVO> attachList = service.getAttachList(bno);

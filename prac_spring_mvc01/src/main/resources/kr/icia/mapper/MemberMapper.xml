@@ -23,12 +23,12 @@
   	<!-- 회원정보 테이블과 회원 권한 테이블을 조인하여 1개의 타입으로 회원 관련 정보를 리턴 -->
   	
   	<select id="read" resultMap="memberMap">
-  		select  
-  		mem.userid, userpw, username, enabled, regdate, updatedate, auth 
-  		from  
-  		tbl_member mem left outer join 
-  		tbl_member_auth auth on mem.userid=auth.userid 
-  		where 
+  		select
+  		mem.userid, userpw, username, enabled, regdate, updatedate, auth
+  		from
+  		tbl_member mem left outer join
+  		tbl_member_auth auth on mem.userid=auth.userid
+  		where
   		mem.userid=#{userid}
   	</select>
   	<!-- left outer join : 좌 테이블, 우 테이블이 있을때, 좌테이블을 기준으로 레코드 추출.

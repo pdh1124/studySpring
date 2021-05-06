@@ -34,7 +34,15 @@
          		<input class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly="readonly">
          	</div>
 			
-			<button data-oper="modify" class="btn btn-warning">수정</button>
+			<sec:authentication property="principal" var="pinfo" />
+			<!-- 프린서펄 정보를 pinfo라는 이름으로 jsp에서 이용. -->
+			<sec:authorize access="isAuthenticated()">
+				<!-- 인증된 사용자만 허가 -->
+				<c:if test="${pinfo.username eq board.writer }">
+					<!-- 인증되었으면서 작성자가 본인 일때 수정 버튼 표시 -->
+					<button data-oper="modify" class="btn btn-warning">수정</button>
+				</c:if>
+			</sec:authorize>			
 			<button data-oper="list" class="btn btn-info">목록</button>
 			
 			<!-- 게시물의 번호를 전달하기 위해 폼의 hidden으로 전달 -->
@@ -77,7 +85,9 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<i class="fa fa-comments fa-fw"></i> Reply
-				<button id="addReplyBtn" class="btn btn-primary btn-xs float-right">new reply</button>
+				<sec:authorize access="isAuthenticated()">
+					<button id="addReplyBtn" class="btn btn-primary btn-xs float-right">new reply</button>
+				</sec:authorize>
 			</div>
 			<br />
 			<div class="panel-body">
@@ -133,6 +143,16 @@
 <script>
 	$(document).ready(function() {
 		/*문서가 준비가 됐다면, 아래 함수 수행. */
+		
+		var csrfHeaderName = "${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";
+		/*ajax 처리시 csrf 값을 함께 전송하기 위한 준비
+		스프링 시큐리티는 데이터 post 전송시 csrf 값을 꼭 확인 하므로*/
+		
+		$(document).ajaxSend(function(e,xhr,options) {
+			xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+		});
+		
 		var operForm = $("#operForm"); /*문서중 form 요소를 찾아서 변수에 할당*/
 		$('button[data-oper="modify"]').on("click", function(e) {
 			//버튼을 클릭했다면? (버튼 속성에 [data-oper="modify"]속성이 있다면 실행)
@@ -148,6 +168,13 @@
 		});
 		
 		var bnoValue = '<c:out value="${board.bno}"/>';
+		
+		
+		var replyer = null;
+		<sec:authorize access="isAuthenticated()">
+			replyer='${pinfo.username}';
+		</sec:authorize>
+		/*댓글의 작성자를 초기화. 로그인한 사용자의 이름으로 댓글 작성자를 붙혀넣겠다.*/
 		
 		/*replyService.add({
 			reply : "js test",
@@ -177,6 +204,11 @@
 			// 댓글 쓰기 버튼을 클릭하다면,
 			modal.find("input").val("");
 			// 모달의 모든 입력창을 ""(빈값)으로 초기화
+			
+			modal.find("input[name='replyer']").val(replyer);
+			modal.find("input[name='replyer']").attr("readonly","readonly");
+			//댓글 작성자를 로그인한 사용자로 지정하고 readonly(읽기전용) 수정하지 못하도록 한다.
+			
 			modalInputReplyDate.closest("div").hide();
 			// closest : 선택 요소와 가장 가까운 요소를 지정.
 			// 즉, modalInputReplyDate 요소의 가장 가까운 div를 찾아서 숨김
@@ -213,10 +245,26 @@
 		
 		//댓글의 모달창에서 수정을 눌렀을때 동작하는 부분
 		modalModBtn.on("click", function(e) {
+			var originalReplyer = modalInputReplyer.val();
+			
 			var reply = {
 				rno : modal.data("rno"),
-				reply : modalInputReply.val()
-			};
+				reply : modalInputReply.val(),
+				replyer : originalReplyer
+			};//자바스크립트 객체 생성.
+			
+			if(!replyer) {
+				alert("로그인 후 수정 가능합니다.");
+				modal.modal("hide");
+				return;
+			}
+			
+			if(replyer != originalReplyer) {
+				alert("자신이 작성한 댓글만 수정 가능");
+				modal.modal("hide");
+				return
+			}
+			
 			replyService.update(reply, function(result) {
 				alert(result);
 				modal.modal("hide");
@@ -227,7 +275,21 @@
 		//댓글 삭제기능
 		modalRemoveBtn.on("click", function(e) {
 			var rno = modal.data("rno");
-			replyService.remove(rno, function(result) {
+			var originalReplyer = modalInputReplyer.val();
+			
+			if(!replyer) {
+				alert("로그인 후 삭제가 가능합니다.");
+				modal.modal("hide");
+				return;
+			}
+			
+			if(replyer != originalReplyer) {
+				alert("자신이 작성한 댓글만 삭제 가능");
+				modal.modal("hide");
+				return
+			}
+			
+			replyService.remove(rno, originalReplyer, function(result) {
 				alert(result);
 				modal.modal("hide");
 				showList(-1); //아직 페이징 처리를 하지 않아서 -1로 임시로 구분함. 나중에 페이징 처리를 하게되면 페이지가 들어갈 예정
@@ -252,7 +314,7 @@
 			console.log(rno);
 			replyService.get(rno,function(reply) {
 				modalInputReply.val(reply.reply);
-				modalInputReplyer.val(reply.replyer);
+				modalInputReplyer.val(reply.replyer).attr("readonly","readonly");
 				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly","readonly");
 				//readonly : 읽기 전용
 				//댓글 목록의 값들을 모달창에 할당

@@ -16,6 +16,7 @@
          <div class="panel-body">
          	<form role="form" action="/board/modify" method="post">
 				
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 				<input type="hidden" name="bno" value="${board.bno}" />
 				<input type="hidden" name="pageNum" value="${cri.pageNum }" />
 				<input type="hidden" name="amount" value="${cri.amount }" />
@@ -36,9 +37,15 @@
 	            	<label>Writer</label>
 	         		<input class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly="readonly">
 	         	</div>
-				
-				<button type="submit" data-oper="modify" class="btn btn-success">Modify</button>
-				<button type="submit" data-oper="remove" class="btn btn-danger">Remove</button>
+	         	
+				<sec:authentication property="principal" var="pinfo" />
+				<sec:authorize access="isAuthenticated()">
+					<!-- 인증된 사용자만 허가 -->
+					<c:if test="${pinfo.username eq board.writer}">
+						<button type="submit" data-oper="modify" class="btn btn-success">Modify</button>
+						<button type="submit" data-oper="remove" class="btn btn-danger">Remove</button>
+					</c:if>
+				</sec:authorize>
 				<button type="submit" data-oper="list" class="btn btn-info">List</button>
 
 			</form>
@@ -75,6 +82,15 @@
 <script>
 	$(document).ready(function() {
 		/*문서가 준비 됐다면, 아래 함수 수행.*/
+		var csrfHeaderName = "${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";
+		/*ajax 처리시 csrf 값을 함께 전송하기 위한 준비
+		스프링 시큐리티는 데이터 post 전송시 csrf 값을 꼭 확인 하므로*/
+		
+		$(document).ajaxSend(function(e,xhr,options) {
+			xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+		});
+		
 		var formObj = $("form"); /*문서중 form 요소를 찾아서 변수에 할당*/
 		
 		$('button').on("click", function(e) {
