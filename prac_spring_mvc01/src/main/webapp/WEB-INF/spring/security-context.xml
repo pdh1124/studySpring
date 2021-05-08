@@ -15,6 +15,7 @@
 	
 	<security:http>
 		<security:intercept-url pattern="/board/list" access="permitAll" />
+		<security:intercept-url pattern="/download" access="hasAnyRole('ROLE_USER','ROLE_MEMBER')" />
 		
 		<security:form-login login-page="/customLogin" />
 		
