@@ -76,15 +76,15 @@
         <div>
         	<ul class="pagination justify-content-center">
         		<c:if test="${pageMaker.prev}">
-        			<li class="page-item previous"><a href="${pageMaker.startPage-1 }">prev</a></li>
+        			<li class="page-item previous"><a class="page-link" href="${pageMaker.startPage-1 }">prev</a></li>
         		</c:if>
-        		<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-        			<li class='page-item ${pageMaker.cri.pageNum ==num?"active":"" }'>
+        		<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">      		
+        			<li class='page-item ${pageMaker.cri.pageNum == num?"active":"" }'>
         				<a href="${num }" class="page-link">${num }</a>
         			</li>
         		</c:forEach>
         		<c:if test="${pageMaker.next}">
-        			<li class="page-item next"><a href="${pageMaker.endPage+1 }">next</a></li>
+        			<li class="page-item next"><a class="page-link" href="${pageMaker.endPage+1 }">next</a></li>
         		</c:if>
         	</ul>
         </div>
@@ -172,6 +172,7 @@
 		
 		//검색 버튼 구동
 		var searchForm = $("#searchForm");
+		
 		$("#searchForm button").on("click", function(e) {
 			//searchForm의 
 			if(!searchForm.find("option:selected").val()) {
