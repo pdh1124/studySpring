@@ -14,6 +14,9 @@
 - oracle DB에 게시물을 담을 테이블을 생성함.
 - 등록 페이지를 생성해 게시글을 작성하고 글 제목과 작성자, 글내용을 입력해 데이터 베이스에 담아 저장을 하는 것을 구현함.
 - 글 작성시 글 번호를 시퀀스로 차례대로 받고 제목과 작성자, 내용을 입력 받음.
+![image](https://user-images.githubusercontent.com/75818141/128600930-b9713cc5-c6be-48ca-8f11-3271976b104a.png)
+![image](https://user-images.githubusercontent.com/75818141/128600951-0994e50a-8c00-48b2-856f-07a2a9e54054.png)
+
 
 ### 게시물 리스트 구현 :
 - 리스트 페이지를 생성함.
