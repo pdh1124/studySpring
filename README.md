@@ -3,8 +3,16 @@
 ## 개발일정
 2021.04.08 ~ 2021.05.07
 
+## 사용기술
+Language : Java, JSP, HTML, CSS, JavaScript
+Framework : Spring, Mybatis, JQuery, Bootstrap
+DB : ORACLE
+Server : Tomcat v9.0
+Design Pattern : MVC (Model - View – Controller)
+암호화 : Spring-Security
 
-### 사전작업 :
+
+## 사전작업 :
 1. spring에 대한 이해와 기능을 구현을 위해 게시판 형태로 작업
 2. 데이터베이스를 정의하고 설계 및 구현
 3. 프로젝트 시작하기 전 디자인 확인 및 bootstrap연동
