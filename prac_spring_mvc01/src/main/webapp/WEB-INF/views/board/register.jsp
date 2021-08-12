@@ -24,8 +24,28 @@
 
                <div class="form-group">
                   <label>Text area</label>
-                  <textarea class="form-control" rows="3" name='content'></textarea>
+                  <textarea class="form-control" rows="3" name="content" id="content"></textarea>
                </div>
+               
+               <script>
+               var oEditors = [];
+	
+	           	nhn.husky.EZCreator.createInIFrame({
+	
+		           	oAppRef: oEditors,
+		           	elPlaceHolder: "content", // html editor가 들어갈 textarea id 입니다.
+		           	sSkinURI: "/resources/se2/SmartEditor2Skin.html",  // html editor가 skin url 입니다.
+		           	fCreator : "createSEditor2", // SE2BasicCreator.js 메소드명이니 변경 금지 X
+		           	htParams : {
+		           			// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+		           			bUseToolbar : true,
+		           			// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+		           			bUseVerticalResizer : true,
+		           			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+		           			bUseModeChanger : true, 
+		           		}
+	           	});
+               </script>
                
                <div class="form-group">
                   <label>Writer</label> 
@@ -65,7 +85,7 @@
 </div>
 
 
-<script>
+<script type="text/javascript">
 $(document).ready(function(e) {
 	var formObj=$("form[role='form']");
 	
@@ -214,8 +234,11 @@ $(document).ready(function(e) {
 				alert(result);
 				targetLi.remove();
 			}
-		})
-	})
+		});
+	});
+	
+	
+	
 });
 </script>
 

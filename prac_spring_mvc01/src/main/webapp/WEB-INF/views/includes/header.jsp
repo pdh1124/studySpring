@@ -14,6 +14,11 @@
 
     <title>SB Admin 2 - Tables</title>
 
+	
+	<!-- 네이버 스마트 에디터2 텍스트 편집기 -->
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+
     <!-- Custom fonts for this template -->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -26,6 +31,8 @@
     <!-- Custom styles for this page -->
     <link href="/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
+    
+ 
 
 </head>
 

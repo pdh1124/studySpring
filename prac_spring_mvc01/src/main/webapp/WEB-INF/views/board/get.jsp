@@ -458,7 +458,7 @@
 			console.log("download file");
 			var liObj =$(this);
 			var path = encodeURIComponent(liObj.data("path")+"/"+liObj.data("uuid")+"_"+liObj.data("filename"));
-			// c:\upload\2021\04\29\uuid_fileName.ext 로 됨
+			// c:\upload\2021\04\29\uuid_fileName.txt 로 됨
 			//console.log("/download?fileName="+path);
 			self.location="/download?fileName="+path;
 		});
